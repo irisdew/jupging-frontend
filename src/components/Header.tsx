@@ -15,9 +15,11 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Image,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 import { Link as ReactLink } from 'react-router-dom';
+import jupgingLogo from '/jupging.svg';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
@@ -52,7 +54,12 @@ export default function Header() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+            <Image
+              boxSize="100px"
+              src={jupgingLogo}
+              className="logo"
+              alt="줍깅 로고"
+            />
             <HStack
               as={'nav'}
               spacing={4}
@@ -108,8 +115,6 @@ export default function Header() {
           </Box>
         ) : null}
       </Box>
-
-      <Box p={4}>Main Content Here</Box>
     </>
   );
 }
