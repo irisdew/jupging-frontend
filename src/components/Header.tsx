@@ -17,11 +17,13 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
+import { Link as ReactLink } from 'react-router-dom';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
+    as={ReactLink}
     px={2}
     py={1}
     rounded={'md'}
@@ -29,7 +31,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}
+    to="/login"
   >
     {children}
   </Link>
