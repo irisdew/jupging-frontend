@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import {
   Flex,
   Box,
   FormControl,
   FormLabel,
   Input,
+  Select,
   Checkbox,
   Stack,
   Link,
@@ -14,10 +14,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-export default function LoginCard() {
-  const [userId, setUserId] = useState();
-  const [password, setPassword] = useState();
-
+export default function CreateEvent() {
   return (
     <Flex
       minH={'100vh'}
@@ -27,9 +24,9 @@ export default function LoginCard() {
     >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+          <Heading fontSize={'3xl'}>줍깅 이벤트를 만들어보세요</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+            우리강산 푸르게 <Link color={'green.400'}>푸르게</Link> ✌️
           </Text>
         </Stack>
         <Box
@@ -39,19 +36,21 @@ export default function LoginCard() {
           p={8}
         >
           <Stack spacing={4}>
-            <FormControl id="userId">
-              <FormLabel>아이디</FormLabel>
-              <Input
-                type="userId"
-                onChange={(e) => setUserId(e.target.value)}
-              />
+            <FormControl id="title">
+              <FormLabel>이벤트명</FormLabel>
+              <Input type="text" placeholder="이벤트명을 입력하세요" />
+            </FormControl>
+            <FormControl id="place">
+              <FormLabel>장소</FormLabel>
+              <Select placeholder="장소 선택" size="md">
+                <option value="option1">뚝섬한강공원</option>
+                <option value="option2">반포한강공원</option>
+                <option value="option3">망원한강공원</option>
+              </Select>
             </FormControl>
             <FormControl id="password">
-              <FormLabel>비밀번호</FormLabel>
-              <Input
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <FormLabel>Password</FormLabel>
+              <Input type="password" />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -59,7 +58,8 @@ export default function LoginCard() {
                 align={'start'}
                 justify={'space-between'}
               >
-                {/* <Checkbox>Remember me</Checkbox> */}
+                <Checkbox>Remember me</Checkbox>
+                <Link color={'blue.400'}>Forgot password?</Link>
               </Stack>
               <Button
                 bg={'blue.400'}
@@ -68,7 +68,7 @@ export default function LoginCard() {
                   bg: 'blue.500',
                 }}
               >
-                로그인
+                Sign in
               </Button>
             </Stack>
           </Stack>
