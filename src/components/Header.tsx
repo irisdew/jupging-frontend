@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import {
   Box,
   Flex,
@@ -21,9 +21,17 @@ import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 import { Link as ReactLink } from 'react-router-dom';
 import jupgingLogo from '/jupging.svg';
 
-const Links = ['Dashboard', 'Projects', 'Team'];
+const Links = [
+  { text: '로그인', path: '/login' },
+  { text: '회원가입', path: '/signup' },
+];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+type LinkType = {
+  text: string;
+  path: string;
+};
+
+const NavLink = ({ text, path }: LinkType) => (
   <Link
     as={ReactLink}
     px={2}
@@ -31,20 +39,25 @@ const NavLink = ({ children }: { children: ReactNode }) => (
     rounded={'md'}
     _hover={{
       textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
+      textColor: useColorModeValue('green.500', 'gray.700'),
     }}
-    to="/login"
+    to={path}
   >
-    {children}
+    {text}
   </Link>
 );
 
-export default function Header() {
+export default function Header({ isLogined }: any) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box
+        bg={useColorModeValue('white.100', 'white.900')}
+        px={20}
+        pt={18}
+        pb={3}
+      >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -54,62 +67,35 @@ export default function Header() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Image
-              boxSize="100px"
-              src={jupgingLogo}
-              className="logo"
-              alt="줍깅 로고"
-            />
-            <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}
-            >
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </HStack>
+            <ReactLink to="/">
+              <Image
+                boxSize="100px"
+                src={jupgingLogo}
+                className="logo"
+                alt="줍깅 로고"
+              />
+            </ReactLink>
           </HStack>
-          <Flex alignItems={'center'}>
-            <Button
-              variant={'solid'}
-              colorScheme={'teal'}
-              size={'sm'}
-              mr={4}
-              leftIcon={<AddIcon />}
-            >
-              Action
-            </Button>
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}
+          {isLogined ? (
+            <Flex alignItems={'center'}>
+              <HStack
+                as={'nav'}
+                spacing={4}
+                display={{ base: 'none', md: 'flex' }}
               >
-                <Avatar
-                  size={'sm'}
-                  src={
-                    'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
-                  }
-                />
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList>
-            </Menu>
-          </Flex>
+                {Links.map((link: LinkType) => (
+                  <NavLink key={link.text} text={link.text} path={link.path} />
+                ))}
+              </HStack>
+            </Flex>
+          ) : null}
         </Flex>
 
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link.text} text={link.text} path={link.path} />
               ))}
             </Stack>
           </Box>
