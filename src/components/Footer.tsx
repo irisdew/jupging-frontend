@@ -8,6 +8,7 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  Divider,
 } from '@chakra-ui/react';
 
 const Logo = (props: any) => {
@@ -40,39 +41,40 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export default function Footer() {
   return (
-    <Box
-      border="1px"
-      borderColor="gray.300"
-      bg={useColorModeValue('white.50', 'white.900')}
-      color={useColorModeValue('white.700', 'white.200')}
-    >
-      <Container as={Stack} maxW={'6xl'} py={10}>
-        <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '3fr 1fr' }}
-          spacing={8}
-        >
-          <Stack spacing={6}>
-            <Text fontSize={'sm'}>
-              지구를 아끼는 사람들의 모임 커뮤니티 ㅣ 줍깅 <br />
-              발행인 : TEAM 줍깅
-              <br />
-              발행일자 : 2023년 3월28일
-            </Text>
-            <Text fontSize={'sm'}>
-              copyright ⓒ 2023 지구를 아끼는 사람들의 모임 커뮤니티 ㅣ 줍깅 All
-              rights reserved.
-            </Text>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <Link fontSize={'sm'} href={'#'}>
-              이용약관
-            </Link>
-            <Link fontSize={'sm'} href={'#'}>
-              개인정보처리방침
-            </Link>
-          </Stack>
-        </SimpleGrid>
-      </Container>
-    </Box>
+    <>
+      <Divider borderColor="gray.300" />
+      <Box
+        bg={useColorModeValue('white.50', 'white.900')}
+        color={useColorModeValue('white.700', 'white.200')}
+      >
+        <Container as={Stack} maxW={'6xl'} py={10}>
+          <SimpleGrid
+            templateColumns={{ sm: '1fr 1fr', md: '3fr 1fr' }}
+            spacing={8}
+          >
+            <Stack spacing={6}>
+              <Text fontSize={'sm'}>
+                지구를 아끼는 사람들의 모임 커뮤니티 ㅣ 줍깅 <br />
+                발행인 : TEAM 줍깅
+                <br />
+                발행일자 : 2023년 3월28일
+              </Text>
+              <Text fontSize={'sm'}>
+                copyright ⓒ 2023 지구를 아끼는 사람들의 모임 커뮤니티 ㅣ 줍깅
+                All rights reserved.
+              </Text>
+            </Stack>
+            <Stack align={'flex-start'}>
+              <Link fontSize={'sm'} href={'#'}>
+                이용약관
+              </Link>
+              <Link fontSize={'sm'} href={'#'}>
+                개인정보처리방침
+              </Link>
+            </Stack>
+          </SimpleGrid>
+        </Container>
+      </Box>
+    </>
   );
 }
