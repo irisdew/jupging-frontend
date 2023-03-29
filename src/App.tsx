@@ -9,6 +9,7 @@ import { AuthContext } from './context/AuthContext';
 import { useAuth } from './hooks/useAuth';
 import { User, useUser } from './hooks/useUser';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import CreateEventForm from './components/CreateEventForm';
 
 function App() {
   const { getItem, setItem } = useLocalStorage();
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<Content />} />
           <Route path="/login" element={<LoginCard />} />
           <Route path="/signup" element={<SignupCard />} />
+          <Route path="/create" element={<CreateEventForm />} />
         </Route>
       </Routes>
     </AuthContext.Provider>
