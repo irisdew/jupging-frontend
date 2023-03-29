@@ -1,8 +1,7 @@
 import { createContext } from 'react';
-import { User } from '../hooks/useUser';
 
 interface AuthContextType {
-  user: User | null;
+  user: null;
 }
 
 export const AuthContext = createContext<AuthContextType>({
