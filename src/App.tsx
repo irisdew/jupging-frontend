@@ -6,8 +6,6 @@ import Layout from './Layout';
 import SignupCard from './components/SignupCard';
 
 import { AuthContext } from './context/AuthContext';
-import { useAuth } from './hooks/useAuth';
-import { User, useUser } from './hooks/useUser';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import CreateEventForm from './components/CreateEventForm';
 import EventDetail from './components/EventDetail';
