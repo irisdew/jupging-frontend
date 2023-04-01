@@ -22,6 +22,7 @@ export default function SignupCard() {
   const passwordConfirmInput = useRef<HTMLInputElement>(null);
   const nickNameInput = useRef<HTMLInputElement>(null);
   const ageInput = useRef<HTMLInputElement>(null);
+  const kakaoIdInput = useRef<HTMLInputElement>(null);
 
   const onClickLoginButton = () => {
     setInputs({
@@ -79,16 +80,6 @@ export default function SignupCard() {
                 ref={nickNameInput}
               />
             </FormControl>
-            <FormControl id="nickname">
-              <FormLabel>닉네임</FormLabel>
-              <Input
-                type="text"
-                borderRadius={13}
-                focusBorderColor={'#8CC63F'}
-                placeholder="활동 닉네임을 입력하세요"
-                ref={nickNameInput}
-              />
-            </FormControl>
             <FormControl id="gender">
               <FormLabel>성별</FormLabel>
               <RadioGroup defaultValue="2">
@@ -110,6 +101,16 @@ export default function SignupCard() {
                 focusBorderColor={'#8CC63F'}
                 placeholder="만 나이로 기입해주세요"
                 ref={ageInput}
+              />
+            </FormControl>
+            <FormControl id="nickname">
+              <FormLabel>카카오톡 아이디</FormLabel>
+              <Input
+                type="text"
+                borderRadius={13}
+                focusBorderColor={'#8CC63F'}
+                placeholder="카카오톡 아이디를 입력하세요"
+                ref={kakaoIdInput}
               />
             </FormControl>
             {/* <FormControl id="phoneNumber">
