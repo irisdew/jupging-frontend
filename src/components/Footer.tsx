@@ -57,7 +57,7 @@ export default function Footer() {
                 지구를 아끼는 사람들의 모임 커뮤니티 ㅣ 줍깅 <br />
                 발행인 : TEAM 줍깅
                 <br />
-                발행일자 : 2023년 3월28일
+                발행일자 : 2023년 3월 28일
               </Text>
               <Text fontSize={'sm'}>
                 copyright ⓒ 2023 지구를 아끼는 사람들의 모임 커뮤니티 ㅣ 줍깅
