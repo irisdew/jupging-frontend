@@ -75,6 +75,7 @@ export const dummyAllEventData = [
     `,
   },
   {
+    id: 3,
     status: '모집중',
     author: {
       // user
@@ -83,39 +84,6 @@ export const dummyAllEventData = [
     },
     title: '언니들이랑 같이 줍깅 할 사람~',
     date: '2023.04.03',
-    place: '반포 한강공원',
-    detail: `
-    안녕하세요! 초보 플로거 줍줍이 입니다~
-    날이 따듯해져서 같이 줍깅하면 좋을 것 같아서요
-    화요일 오후 2시 한강공원 안내센터 앞에서 봐요!
-    `,
-  },
-  {
-    status: '모집중',
-    author: {
-      // user
-      nickname: '줍줍이',
-      age: 26,
-    },
-    title: '한강에서 같이 줍깅해요!',
-    date: '2023.03.28',
-    place: '반포 한강공원',
-    detail: `
-    안녕하세요! 초보 플로거 줍줍이 입니다~
-    날이 따듯해져서 같이 줍깅하면 좋을 것 같아서요
-    화요일 오후 2시 한강공원 안내센터 앞에서 봐요!
-    `,
-  },
-  {
-    id: 3,
-    status: '모집중',
-    author: {
-      // user
-      nickname: '줍줍이',
-      age: 26,
-    },
-    title: '한강에서 같이 줍깅해요!',
-    date: '2023.03.28',
     place: '반포 한강공원',
     detail: `
     안녕하세요! 초보 플로거 줍줍이 입니다~
@@ -141,6 +109,7 @@ export const dummyAllEventData = [
     `,
   },
   {
+    id: 5,
     status: '모집중',
     author: {
       // user
@@ -157,6 +126,7 @@ export const dummyAllEventData = [
     `,
   },
   {
+    id: 6,
     status: '모집중',
     author: {
       // user
@@ -173,6 +143,7 @@ export const dummyAllEventData = [
     `,
   },
   {
+    id: 7,
     status: '모집중',
     author: {
       // user
@@ -181,7 +152,7 @@ export const dummyAllEventData = [
     },
     title: '한강에서 같이 줍깅해요!',
     date: '2023.03.28',
-    place: '반포 한강공원',
+    place: '반포한강공원',
     detail: `
     안녕하세요! 초보 플로거 줍줍이 입니다~
     날이 따듯해져서 같이 줍깅하면 좋을 것 같아서요
@@ -189,15 +160,50 @@ export const dummyAllEventData = [
     `,
   },
   {
+    id: 8,
     status: '모집중',
     author: {
       // user
-      nickname: '줍줍이',
+      nickname: '코코더',
+      age: 27,
+    },
+    title: '짧은 코스로 줍깅해요!',
+    date: '2023.03.29',
+    place: '여의도한강공원',
+    detail: `
+    안녕하세요! 초보 플로거 줍줍이 입니다~
+    날이 따듯해져서 같이 줍깅하면 좋을 것 같아서요
+    화요일 오후 2시 한강공원 안내센터 앞에서 봐요!
+    `,
+  },
+  {
+    id: 9,
+    status: '모집중',
+    author: {
+      // user
+      nickname: '씩씩이',
       age: 26,
     },
-    title: '한강에서 같이 줍깅해요!',
+    title: '주말에 같이 줍깅하실분',
+    date: '2023.04.02',
+    place: '반포한강공원',
+    detail: `
+    안녕하세요! 초보 플로거 줍줍이 입니다~
+    날이 따듯해져서 같이 줍깅하면 좋을 것 같아서요
+    화요일 오후 2시 한강공원 안내센터 앞에서 봐요!
+    `,
+  },
+  {
+    id: 10,
+    status: '모집중',
+    author: {
+      // user
+      nickname: '라라',
+      age: 22,
+    },
+    title: '함께 줍깅해요!',
     date: '2023.03.28',
-    place: '반포 한강공원',
+    place: '잠실한강공원',
     detail: `
     안녕하세요! 초보 플로거 줍줍이 입니다~
     날이 따듯해져서 같이 줍깅하면 좋을 것 같아서요

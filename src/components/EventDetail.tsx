@@ -27,7 +27,8 @@ import {
 } from '@chakra-ui/react';
 import { useState, useRef } from 'react';
 import { CalendarIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { placeData, dummySingleEventData } from '../constant/constant';
+import { placeData, eventData, dummyAllEventData } from '../constant/constant';
+import { useParams } from 'react-router-dom';
 
 export default function EventDetail() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -39,6 +40,10 @@ export default function EventDetail() {
   const placeInput = useRef<HTMLSelectElement>(null);
   const peopleInput = useRef<HTMLInputElement>(null);
   const detailInput = useRef<HTMLTextAreaElement>(null);
+
+  const { eventId } = useParams();
+
+  const eventData = dummyAllEventData[eventId - 1];
 
   const onClickSubmitButton = () => {
     setInputs({
@@ -64,10 +69,10 @@ export default function EventDetail() {
               src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
             />
             <Text fontSize={'lg'} fontWeight={600} mr={5}>
-              {dummySingleEventData.author.nickname}
+              {eventData.author.nickname}
             </Text>
             <Text fontSize={'md'} color={'gray.500'}>
-              {dummySingleEventData.author.age}세
+              {eventData.author.age}세
             </Text>
           </Stack>
           <Box
@@ -80,7 +85,7 @@ export default function EventDetail() {
                 borderRadius={13}
                 type="text"
                 readOnly
-                value={dummySingleEventData.title}
+                value={eventData.title}
                 borderColor={'#9E9E9E'}
                 focusBorderColor={'#9E9E9E'}
               />
@@ -97,7 +102,7 @@ export default function EventDetail() {
                       focusBorderColor={'#9E9E9E'}
                       type="text"
                       readOnly
-                      value={dummySingleEventData.date}
+                      value={eventData.date}
                     />
                   </InputGroup>
                 </Box>
@@ -120,7 +125,7 @@ export default function EventDetail() {
                       focusBorderColor={'#9E9E9E'}
                       type="text"
                       readOnly
-                      value={dummySingleEventData.place}
+                      value={eventData.place}
                     />
                   </InputGroup>
                 </Box>
@@ -133,7 +138,7 @@ export default function EventDetail() {
                   borderColor={'#9E9E9E'}
                   focusBorderColor={'#9E9E9E'}
                   fontSize="md"
-                  value={dummySingleEventData.detail}
+                  value={eventData.detail}
                 />
               </FormControl>
               <Flex gap={3} justify={'center'}>
@@ -151,7 +156,7 @@ export default function EventDetail() {
                   신청하기 ( 1 / 5 )
                 </Button>
               </Flex>
-              <Flex gap={3} justify={'flex-end'}>
+              {/* <Flex gap={3} justify={'flex-end'}>
                 <Button
                   bg={'red.400'}
                   color={'white'}
@@ -163,7 +168,7 @@ export default function EventDetail() {
                 >
                   삭제
                 </Button>
-              </Flex>
+              </Flex> */}
             </Stack>
           </Box>
         </Stack>

@@ -11,20 +11,18 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { CalendarIcon } from '@chakra-ui/icons';
+import { useNavigate } from 'react-router-dom';
 
-export default function EventCard() {
-  const dummyData = {
-    author: {
-      nickname: '줍줍이',
-      age: 26,
-    },
-    title: '한강에서 같이 줍깅해요!',
-    date: '2023.03.28',
-    place: '반포 한강공원',
-  };
-
+export default function EventCard({ eventData }) {
+  const navigate = useNavigate();
   return (
-    <Center py={6}>
+    <Center
+      py={6}
+      cursor={'pointer'}
+      onClick={() => {
+        navigate(`./event/${eventData.id}`);
+      }}
+    >
       <Box
         maxW={'445px'}
         w={'full'}
@@ -43,7 +41,7 @@ export default function EventCard() {
           pos={'relative'}
         >
           <Image
-            src="https://i.insider.com/60e5ba5e85fa170018522781?width=700"
+            src={`./${eventData.place}.png`}
             objectFit={'cover'}
             h={'210px'}
             w={'full'}
@@ -55,9 +53,9 @@ export default function EventCard() {
           />
           <Flex alignContent={'end'}>
             <Text fontSize={'lg'} fontWeight={600} mr={2}>
-              {dummyData.author.nickname}
+              {eventData.author.nickname}
             </Text>
-            <Text>{dummyData.author.age}세</Text>
+            <Text>{eventData.author.age}세</Text>
           </Flex>
         </Stack>
         <Stack>
@@ -67,7 +65,7 @@ export default function EventCard() {
             fontFamily={'body'}
             mb={2}
           >
-            {dummyData.title}
+            {eventData.title}
           </Heading>
           <Flex alignContent={'end'} px={2}>
             <CalendarIcon mr={2} />
@@ -76,7 +74,7 @@ export default function EventCard() {
               fontFamily={'body'}
               justifyContent="center"
             >
-              {dummyData.date}
+              {eventData.date}
             </Heading>
           </Flex>
           <Flex alignContent={'end'} pt={2} px={2} align="e nd">
@@ -92,7 +90,7 @@ export default function EventCard() {
                 fontFamily={'body'}
                 justifyContent="center"
               >
-                {dummyData.place}
+                {eventData.place}
               </Heading>
               <Text>서울 서초구 신반포로11길 40</Text>
             </Box>
