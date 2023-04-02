@@ -19,8 +19,6 @@ import { dummyAllEventData } from '../constant/constant';
 export default function Content() {
   const [isMobileWeb] = useMediaQuery('(width: 480px)');
 
-  console.log(dummyAllEventData.reverse().slice(7));
-
   return (
     <Container maxW={'8xl'} p={0}>
       <Banner />

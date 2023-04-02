@@ -13,7 +13,7 @@ import {
 import { CalendarIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
-export default function EventCard({ eventData }) {
+export default function EventCard({ eventData }: any) {
   const navigate = useNavigate();
   return (
     <Center

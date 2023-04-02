@@ -27,7 +27,7 @@ import {
 } from '@chakra-ui/react';
 import { useState, useRef } from 'react';
 import { CalendarIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { placeData, eventData, dummyAllEventData } from '../constant/constant';
+import { dummyAllEventData } from '../constant/constant';
 import { useParams } from 'react-router-dom';
 
 export default function EventDetail() {
@@ -43,7 +43,7 @@ export default function EventDetail() {
 
   const { eventId } = useParams();
 
-  const eventData = dummyAllEventData[eventId - 1];
+  const eventData = dummyAllEventData[Number(eventId) - 1];
 
   const onClickSubmitButton = () => {
     setInputs({
