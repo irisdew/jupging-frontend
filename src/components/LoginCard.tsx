@@ -10,9 +10,11 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginCard() {
   const [inputs, setInputs] = useState<any>();
+  const navigate = useNavigate();
 
   const emailInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
@@ -22,6 +24,8 @@ export default function LoginCard() {
       email: emailInput.current?.value,
       password: passwordInput.current?.value,
     });
+
+    navigate('/');
   };
 
   return (

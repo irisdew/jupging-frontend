@@ -155,7 +155,7 @@ export default function CreateEventForm() {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader></ModalHeader>
-          <ModalBody>안내메시지입니다!</ModalBody>
+          <ModalBody>모임이 등록되었습니다</ModalBody>
           <ModalFooter>
             <Button
               bg={'#8CC63F'}

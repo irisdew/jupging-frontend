@@ -28,7 +28,7 @@ import {
 import { useState, useRef } from 'react';
 import { CalendarIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { dummyAllEventData } from '../constant/constant';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function EventDetail() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,6 +41,7 @@ export default function EventDetail() {
   const peopleInput = useRef<HTMLInputElement>(null);
   const detailInput = useRef<HTMLTextAreaElement>(null);
 
+  const navigate = useNavigate();
   const { eventId } = useParams();
 
   const eventData = dummyAllEventData[Number(eventId) - 1];
@@ -151,7 +152,7 @@ export default function EventDetail() {
                     bg: '#BAEB7A',
                   }}
                   borderRadius={13}
-                  onClick={onClickCancelButton}
+                  onClick={onClickSubmitButton}
                 >
                   신청하기 ( 1 / 5 )
                 </Button>
@@ -178,7 +179,10 @@ export default function EventDetail() {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader></ModalHeader>
-          <ModalBody>안내메시지입니다!</ModalBody>
+          <ModalBody>
+            노쇼 시 서비스 사용에 제한이 생길 수 있습니다. <br />꼭 신중히
+            신청해 주세요!
+          </ModalBody>
           <ModalFooter>
             <Button
               bg={'#8CC63F'}
@@ -188,9 +192,12 @@ export default function EventDetail() {
               }}
               mr={3}
               borderRadius={13}
-              onClick={onClose}
+              onClick={() => {
+                onClose();
+                navigate('/');
+              }}
             >
-              Close
+              네, 참석하겠습니다.
             </Button>
           </ModalFooter>
         </ModalContent>
